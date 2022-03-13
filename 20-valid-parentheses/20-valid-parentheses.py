@@ -1,21 +1,16 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        pmap = {
+            '{': '}', '(': ')', '[':']'
+        }         
         stack = []
-        
-        for c in s:
-            if c == '(' or c == '{' or c == '[':
-                stack.append(c)
-            else:
-                if len(stack) > 0:
-                    ch = stack.pop()
-                    if (c == ')' and ch == '(') or (c == ']' and ch == '[') or (c == '}' and ch == '{'):
-                        continue
-                    else:
-                        return False
-                else:
-                    return False
-                
-        if len(stack) > 0:
+        for i in s:
+            if len(stack)==0 and i in pmap.values():
+                return False
+            if i in pmap.keys():
+                stack.append(i)
+            elif i != pmap[stack.pop()]:
+                return False            
+        if len(stack) != 0:
             return False
-        else:
-            return True
+        return True
