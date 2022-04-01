@@ -5,11 +5,10 @@ class Solution:
         """
         
         j=0
-        i=len(s)-1
-        while j<i:
+        i=-1
+        while j<len(s)/2:
             temp=s[i]
-            s[i]=s[j];
+            s[i]=s[j]
             s[j]=temp
             j+=1
             i-=1
-        print(s)
