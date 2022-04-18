@@ -17,8 +17,6 @@ class Solution:
         res = ""
         # Make all dir in dirList add in res
         for directory in dirList:
-            
-            print(directory,res)
             res +="/"+ directory
           
         # If res == "/" return it else pop out last string
