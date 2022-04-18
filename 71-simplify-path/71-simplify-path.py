@@ -14,10 +14,12 @@ class Solution:
             else:
                 dirList.append(directory)
                 
-        res = "/"
+        res = ""
         # Make all dir in dirList add in res
         for directory in dirList:
-            res += directory
-            res += "/"
+            
+            print(directory,res)
+            res +="/"+ directory
+          
         # If res == "/" return it else pop out last string
-        return res[:-1] if res != "/" else "/"
+        return res if res != "" else "/"
