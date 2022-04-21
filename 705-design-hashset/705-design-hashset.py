@@ -1,15 +1,13 @@
 class MyHashSet:
-    items=[]
+    items={-1}
     def __init__(self):
-        self.items=[]
+        self.items={-1}
 
     def add(self, key: int) -> None:
-        self.items.append(key)
+        self.items.add(key)
 
     def remove(self, key: int) -> None:
-        self.items=list(filter((key).__ne__, self.items))
-        # while key in self.items:
-        #     self.items.remove(key)
+        self.items.discard(key)
 
     def contains(self, key: int) -> bool:
         if key in self.items:
