@@ -7,8 +7,9 @@ class MyHashSet:
         self.items.append(key)
 
     def remove(self, key: int) -> None:
-        while key in self.items:
-            self.items.remove(key)
+        self.items=list(filter((key).__ne__, self.items))
+        # while key in self.items:
+        #     self.items.remove(key)
 
     def contains(self, key: int) -> bool:
         if key in self.items:
