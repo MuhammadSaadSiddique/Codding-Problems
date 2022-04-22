@@ -1,19 +1,60 @@
 class MyHashSet:
-    items={-1}
+    item={-1}
     def __init__(self):
-        self.items={-1}
+        self.item={-1}
 
     def add(self, key: int) -> None:
-        self.items.add(key)
+        self.item.add(key)
 
     def remove(self, key: int) -> None:
-        self.items.discard(key)
+        self.item.discard(key)
 
     def contains(self, key: int) -> bool:
-        if key in self.items:
+        if key in self.item:
             return True
         else:
             return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Your MyHashSet object will be instantiated and called as such:
