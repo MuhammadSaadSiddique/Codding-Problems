@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: int
         """
         c=0
-        res=[]
         for log in logs:
             if log!="../" and log!="./":
                 c+=1
