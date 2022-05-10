@@ -1,23 +1,31 @@
 class Solution {
+  vector<vector<int>> result;
     
 public:
-   void solve(int prev,int k,int sum,int n,vector<int> temp,vector<vector<int>>&ans){
-        if(k==0){
-            if(sum==n){
-                ans.push_back(temp);
-            }
+    vector<vector<int>> combinationSum3(int k, int target) {
+        vector<int> buffer;
+        vector<int> candidates;
+        for(int j=1;j<=9;j++){
+            candidates.push_back(j);
+            cout<<j;
+        }
+        dfs(candidates, 0, buffer, 0, target,k);
+        return result;
+    }
+   
+    
+    void dfs(vector<int> candidates, int i, vector<int>&buffer, int sum, int target,int k){
+        if(target == sum && buffer.size()==k){
+            result.push_back(buffer);
             return;
         }
-        for(int i=prev;i<=9;i++){
-            temp.push_back(i);
-            solve(i+1,k-1,sum+i,n,temp,ans);
-            temp.pop_back();
-        }
-    }
-    vector<vector<int>> combinationSum3(int k, int n) {
-        vector<vector<int>> ans;
-        vector<int> temp;
-        solve(1,k,0,n,temp,ans);
-        return ans;
+        
+        if(i>=candidates.size() || sum>target)  return;
+        
+        buffer.push_back(candidates[i]);
+        dfs(candidates, i+1, buffer, sum+candidates[i], target,k);
+        buffer.pop_back();
+        
+        dfs(candidates, i+1, buffer, sum, target,k);
     }
 };
