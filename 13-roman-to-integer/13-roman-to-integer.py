@@ -1,15 +1,14 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
         s = s.replace("IV", "IIII").replace("IX", "VIIII")
+        # MCMXCIIII
         s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
+        # MCMLXXXXIIII
         s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
+        # MDCCCCLXXXXIIII
         res=0
         for c in s:
             switch={
-                'IV':4,
-                'IX':9,
-                'XC':90,
-                'CM':900,
                 'I':1,
                 'V':5,
                 
